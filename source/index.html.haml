@@ -4,16 +4,16 @@
   #page
     #menu
       %ul
-        %li(class="selected" href="#contact" class="contact links")CONTACT / REEL
-        %li(a href="#shorts" class="shorts links")SHORT FILMS
-        %li(a href="#music" class="music links")MUSIC VIDEOS
-        %li(a href="#fashion" class="fashion links")FASHION VIDEOS
-        %li(a href="#experimental" class="experimental links")EXPERIMENTAL
-        %li(a href="#commercials" class="commercials links")COMMERCIALS
+        %li(class="selected" href="#home" class="home lnks")HOME
+        %li(a href="#commercial" class="commercial links")COMMERCIAL
+        %li(a href="#narrative" class="narrative links")NARRATIVE
         %li(a href="#photos" class="photos links")PHOTOS
     #content
-      #contact
-        %a(name="contact")
+      #home
+        %a(name="home")
+        %h2 Reel
+        .embed-container
+          %iframe(src="http://player.vimeo.com/video/61879457?title=0&amp;byline=0&amp;portrait=0" frameborder="0") webkitAllowFullScreen mozallowfullscreen allowFullScreen
         %h2 Contact
         David Goldberg
         %br
@@ -21,24 +21,12 @@
         %a(href="mailto:david@simplemattersfilms.com")david@simplemattersfilms.com
         %br
         P - 1 778 938 7573
-        %h2 Reel
-        .embed-container
-          %iframe(src="http://player.vimeo.com/video/61879457?title=0&amp;byline=0&amp;portrait=0" frameborder="0") webkitAllowFullScreen mozallowfullscreen allowFullScreen
-      .short(style="display:none;")
-        %a(name="shorts")
-        %h2 Short Films
-      .music(style="display:none;")
-        %a(name="music")
-        %h2 Music Videos
-      .fashion(style="display:none;")
-        %a(name="fashion")
-        %h2 Fashion Videos
-      .experimental(style="display:none;")
-        %a(name="experimental")
-        %h2 Experimental
-      .commercials(style="display:none;")
-        %a(name="commercials")
-        %h2 Commercials
+      .commercial(style="display:none;")
+        %a(name="commercial")
+        %h2 Commercial
+      .narrative(style="display:none;")
+        %a(name="narrative")
+        %h2 Narrative
       .photos(style="display:none;")
         %a(name="photos")
         %h2 Photos

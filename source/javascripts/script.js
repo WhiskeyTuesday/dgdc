@@ -6,6 +6,7 @@ function loadAlbum(album,callback) {
 	js.setAttribute('src', albumURL);
 	document.getElementsByTagName('head').item(0).appendChild(js);
 }
+
 function displayAlbum(videos,containerID) {
 	var container = document.getElementById(containerID);
 	// container.innerHTML = '';
@@ -126,80 +127,44 @@ function displayPhotoAlbum(flickrID,containerID) {
 	$("#"+containerID).show();
 }
 
-function displayContact() {
+function displayHome() {
 	$("#content > div").hide();
 	$("#contact").show();
 	ga('send', {
 	  'hitType': 'pageview',
-	  'page': '/contact',
-	  'title': 'Contact'
+	  'page': '/home',
+	  'title': 'Home'
 	});
 }
-function displayShorts(videos) {
+
+function displayCommercial(videos) {
 	$("#content > div").hide();
-	if($('#shorts .list').length > 0) {
-		$("#shorts").show();
+	if($('#commercial .list').length > 0) {
+		$("#commercial").show();
 	} else {
-		displayAlbum(videos,'shorts');
+		displayAlbum(videos,'commercial');
 	}
 	ga('send', {
 	  'hitType': 'pageview',
-	  'page': '/shorts',
-	  'title': 'Shorts'
+	  'page': '/commercial',
+	  'title': 'Commercial'
 	});
 }
-function displayMusic(videos) {
+
+function displayNarrative(videos) {
 	$("#content > div").hide();
-	if($('#music .list').length > 0) {
-		$("#music").show();
+	if($('#narrative .list').length > 0) {
+		$("#narrative").show();
 	} else {
-		displayAlbum(videos,'music');
+		displayAlbum(videos,'narrative');
 	}
 	ga('send', {
 	  'hitType': 'pageview',
-	  'page': '/music',
-	  'title': 'Music'
+	  'page': '/narrative',
+	  'title': 'Narrative'
 	});
 }
-function displayFashion(videos) {
-	$("#content > div").hide();
-	if($('#fashion .list').length > 0) {
-		$("#fashion").show();
-	} else {
-		displayAlbum(videos,'fashion');
-	}
-	ga('send', {
-	  'hitType': 'pageview',
-	  'page': '/fashion',
-	  'title': 'Fashion'
-	});
-}
-function displayExperimental(videos) {
-	$("#content > div").hide();
-	if($('#experimental .list').length > 0) {
-		$("#experimental").show();
-	} else {
-		displayAlbum(videos,'experimental');
-	}
-	ga('send', {
-	  'hitType': 'pageview',
-	  'page': '/experimental',
-	  'title': 'Experimental'
-	});
-}
-function displayCommercials(videos) {
-	$("#content > div").hide();
-	if($('#commercials .list').length > 0) {
-		$("#commercials").show();
-	} else {
-		displayAlbum(videos,'commercials');
-	}
-	ga('send', {
-	  'hitType': 'pageview',
-	  'page': '/commercials',
-	  'title': 'Commercials'
-	});
-}
+
 function displayPhotos(flickrID) {
 	$("#content > div").hide();
 	if($('#photos .photolist').length > 0) {
@@ -214,57 +179,32 @@ function displayPhotos(flickrID) {
 	});
 }
 
-
 $(document).ready(function() {
 	$('html').addClass('js');
 	$("#menu ul").tinyNav();
 	if (window.location.hash) {
-		if (window.location.hash == '#contact') {
+		if (window.location.hash == '#home') {
 			$("#menu .links").removeClass("selected");
 			$('.tinynav option').removeAttr("selected");		
-			$("#menu .contact.links").addClass("selected");
-			$('.tinynav').val("#contact").attr("selected","selected");
+			$("#menu .home.links").addClass("selected");
+			$('.tinynav').val("#home").attr("selected","selected");
 			displayContact();
-		} else if (window.location.hash == '#shorts') {
+		} else if (window.location.hash == '#commercial') {
 			$("#menu .links").removeClass("selected");
 			$('.tinynav option').removeAttr("selected");		
-			$("#menu .shorts.links").addClass("selected");
-			$('.tinynav').val("#shorts").attr("selected","selected");
-			var album = '2487190';
-			var callback = 'displayShorts';
-			loadAlbum(album,callback);
-		} else if (window.location.hash == '#music') {
-			$("#menu .links").removeClass("selected");
-			$('.tinynav option').removeAttr("selected");		
-			$("#menu .music.links").addClass("selected");
-			$('.tinynav').val("#music").attr("selected","selected");
-			var album = '2487202';
-			var callback = 'displayMusic';
-			loadAlbum(album,callback);
-		} else if (window.location.hash == '#fashion') {
-			$("#menu .links").removeClass("selected");
-			$('.tinynav option').removeAttr("selected");		
-			$("#menu .fashion.links").addClass("selected");
-			$('.tinynav').val("#fashion").attr("selected","selected");
-			var album = '2487205';
-			var callback = 'displayFashion';
-			loadAlbum(album,callback);		
-		} else if (window.location.hash == '#experimental') {
-			$("#menu .links").removeClass("selected");
-			$('.tinynav option').removeAttr("selected");		
-			$("#menu .experimental.links").addClass("selected");
-			$('.tinynav').val("#experimental").attr("selected","selected");
-			var album = '2487207';
-			var callback = 'displayExperimental';
-			loadAlbum(album,callback);	
-		} else if (window.location.hash == '#commercials') {
-			$("#menu .links").removeClass("selected");
-			$('.tinynav option').removeAttr("selected");		
-			$("#menu .commercials.links").addClass("selected");
-			$('.tinynav').val("#commercials").attr("selected","selected");
+			$("#menu .commercial.links").addClass("selected");
+			$('.tinynav').val("#commercial").attr("selected","selected");
 			var album = '2487208';
-			var callback = 'displayCommercials';
+			var callback = 'displayCommercial';
 			loadAlbum(album,callback);
+		} else if (window.location.hash == '#narrative') {
+			$("#menu .links").removeClass("selected");
+			$('.tinynav option').removeAttr("selected");		
+			$("#menu .narrative.links").addClass("selected");
+			$('.tinynav').val("#narrative").attr("selected","selected");
+			var album = '2487207';
+			var callback = 'displayNarrative';
+			loadAlbum(album,callback);	
 		} else if (window.location.hash == '#photos') {
 			$("#menu .links").removeClass("selected");
 			$('.tinynav option').removeAttr("selected");		
@@ -279,39 +219,21 @@ $(document).ready(function() {
 		$(this).addClass("selected");
 		$('.tinynav option').removeAttr("selected");		
 	});
-	$("#menu .contact.links").click(function () { 
-		$('.tinynav').val("#contact").attr("selected","selected");
-		displayContact();
+	$("#menu .home.links").click(function () { 
+		$('.tinynav').val("#home").attr("selected","selected");
+		displayHome();
 	});	
-	$("#menu .shorts.links").click(function () {
-		$('.tinynav').val("#shorts").attr("selected","selected");
-		var album = '2487190';
-		var callback = 'displayShorts';
-		loadAlbum(album,callback);
-	});
-	$("#menu .music.links").click(function () {
-		$('.tinynav').val("#music").attr("selected","selected");
-		var album = '2487202';
-		var callback = 'displayMusic';
-		loadAlbum(album,callback);
-	});
-	$("#menu .fashion.links").click(function () {
-		$('.tinynav').val("#fashion").attr("selected","selected");
-		var album = '2487205';
-		var callback = 'displayFashion';
-		loadAlbum(album,callback);		
-	});
-	$("#menu .experimental.links").click(function () {
-		$('.tinynav').val("#experimental").attr("selected","selected");
-		var album = '2487207';
-		var callback = 'displayExperimental';
-		loadAlbum(album,callback);	
-	});
-	$("#menu .commercials.links").click(function () {
-		$('.tinynav').val("#commercials").attr("selected","selected");
+	$("#menu .commercial.links").click(function () {
+		$('.tinynav').val("#commercial").attr("selected","selected");
 		var album = '2487208';
-		var callback = 'displayCommercials';
+		var callback = 'displayCommercial';
 		loadAlbum(album,callback);
+	});
+	$("#menu .narrative.links").click(function () {
+		$('.tinynav').val("#narrative").attr("selected","selected");
+		var album = '2487207';
+		var callback = 'displayNarrative';
+		loadAlbum(album,callback);	
 	});
 	$("#menu .photos.links").click(function () {
 		$('.tinynav').val("#photos").attr("selected","selected");
@@ -319,27 +241,16 @@ $(document).ready(function() {
 		displayPhotos(flickrID);
 	});
 	$(".tinynav").change( function() {
-		if ($(this).val() == '#contact'){
-			displayContact();
-		} else if ($(this).val() == '#shorts'){
-			var album = '2487190';
-			var callback = 'displayShorts';
+		if ($(this).val() == '#home'){
+			displayHome();
 			loadAlbum(album,callback);
-		} else if ($(this).val() == '#music'){
-			var album = '2487202';
-			var callback = 'displayMusic';
-			loadAlbum(album,callback);
-		} else if ($(this).val() == '#fashion'){
-			var album = '2487205';
-			var callback = 'displayFashion';
-			loadAlbum(album,callback);
-		} else if ($(this).val() == '#experimental'){
-			var album = '2487207';
-			var callback = 'displayExperimental';
-			loadAlbum(album,callback);
-		} else if ($(this).val() == '#commercials'){
+		} else if ($(this).val() == '#commercial'){
 			var album = '2487208';
 			var callback = 'displayCommercials';
+			loadAlbum(album,callback);
+		} else if ($(this).val() == '#narrative'){
+			var album = '2487207';
+			var callback = 'displayNarrative';
 			loadAlbum(album,callback);
 		} else if ($(this).val() == '#photos'){
 			var flickrID = "69044753@N03";
@@ -354,14 +265,12 @@ window.addEventListener('load', function() {
   window.setTimeout(function() {
     var bubble = new google.bookmarkbubble.Bubble();
     var parameter = 'bmb=1';
-
     bubble.hasHashParameter = function() { return window.location.hash.indexOf(parameter) != -1; };
     bubble.setHashParameter = function() { if (!this.hasHashParameter()) { window.location.hash += parameter; } };
     bubble.getViewportHeight = function() { return window.innerHeight; };
     bubble.getViewportScrollY = function() { return window.pageYOffset; };
     bubble.registerScrollHandler = function(handler) { window.addEventListener('scroll', handler, false); };
     bubble.deregisterScrollHandler = function(handler) { window.removeEventListener('scroll', handler, false); };
-
     bubble.showIfAllowed();
   }, 1000);
 }, false);
