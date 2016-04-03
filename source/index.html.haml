@@ -4,16 +4,17 @@
   #page
     #menu
       %ul
-        %li(class="selected" href="#home" class="home lnks")HOME
-        %li(a href="#commercial" class="commercial links")COMMERCIAL
-        %li(a href="#narrative" class="narrative links")NARRATIVE
-        %li(a href="#photos" class="photos links")PHOTOS
+        %li.selected
+          %a(href="#home" class="home lnks")HOME
+        %li
+          %a(href="#commercial" class="commercial links")COMMERCIAL
+        %li
+          %a(href="#narrative" class="narrative links")NARRATIVE
+        %li
+          %a(href="#photos" class="photos links")PHOTOS
     #content
       #home
         %a(name="home")
-        %h2 Reel
-        .embed-container
-          %iframe(src="http://player.vimeo.com/video/61879457?title=0&amp;byline=0&amp;portrait=0" frameborder="0") webkitAllowFullScreen mozallowfullscreen allowFullScreen
         %h2 Contact
         David Goldberg
         %br
@@ -21,6 +22,9 @@
         %a(href="mailto:david@simplemattersfilms.com")david@simplemattersfilms.com
         %br
         P - 1 778 938 7573
+        %h2 Reel
+        .embed-container
+          %iframe(src="http://player.vimeo.com/video/61879457?title=0&amp;byline=0&amp;portrait=0" frameborder="0") webkitAllowFullScreen mozallowfullscreen allowFullScreen
       .commercial(style="display:none;")
         %a(name="commercial")
         %h2 Commercial
@@ -30,7 +34,7 @@
       .photos(style="display:none;")
         %a(name="photos")
         %h2 Photos
-      .footer"
+      .footer
       %p
         Contact:
         %a(href="mailto:david@simplemattersfilms.com")david@simplemattersfilms.com

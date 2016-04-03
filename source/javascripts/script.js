@@ -188,7 +188,7 @@ $(document).ready(function() {
 			$('.tinynav option').removeAttr("selected");		
 			$("#menu .home.links").addClass("selected");
 			$('.tinynav').val("#home").attr("selected","selected");
-			displayContact();
+			displayHome();
 		} else if (window.location.hash == '#commercial') {
 			$("#menu .links").removeClass("selected");
 			$('.tinynav option').removeAttr("selected");		
