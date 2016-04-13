@@ -139,7 +139,7 @@ function displayHome() {
 
 function displayCommercial(videos) {
 	$("#content > div").hide();
-	if($('#commercial.list').length > 0) {
+	if($('#commercial .list').length > 0) {
 		$("#commercial").show();
 	} else {
 		displayAlbum(videos,'commercial');
@@ -153,7 +153,7 @@ function displayCommercial(videos) {
 
 function displayNarrative(videos) {
 	$("#content > div").hide();
-	if($('#narrative.list').length > 0) {
+	if($('#narrative .list').length > 0) {
 		$("#narrative").show();
 	} else {
 		displayAlbum(videos,'narrative');
