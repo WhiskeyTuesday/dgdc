@@ -129,7 +129,7 @@ function displayPhotoAlbum(flickrID,containerID) {
 
 function displayHome() {
 	$("#content > div").hide();
-	$("#contact").show();
+	$("#home").show();
 	ga('send', {
 	  'hitType': 'pageview',
 	  'page': '/home',
@@ -139,7 +139,7 @@ function displayHome() {
 
 function displayCommercial(videos) {
 	$("#content > div").hide();
-	if($('#commercial .list').length > 0) {
+	if($('#commercial.list').length > 0) {
 		$("#commercial").show();
 	} else {
 		displayAlbum(videos,'commercial');
@@ -153,7 +153,7 @@ function displayCommercial(videos) {
 
 function displayNarrative(videos) {
 	$("#content > div").hide();
-	if($('#narrative .list').length > 0) {
+	if($('#narrative.list').length > 0) {
 		$("#narrative").show();
 	} else {
 		displayAlbum(videos,'narrative');
@@ -194,7 +194,7 @@ $(document).ready(function() {
 			$('.tinynav option').removeAttr("selected");		
 			$("#menu .commercial.links").addClass("selected");
 			$('.tinynav').val("#commercial").attr("selected","selected");
-			var album = '2487208';
+			var album = '3881699';
 			var callback = 'displayCommercial';
 			loadAlbum(album,callback);
 		} else if (window.location.hash == '#narrative') {
@@ -202,7 +202,7 @@ $(document).ready(function() {
 			$('.tinynav option').removeAttr("selected");		
 			$("#menu .narrative.links").addClass("selected");
 			$('.tinynav').val("#narrative").attr("selected","selected");
-			var album = '2487207';
+			var album = '3881698';
 			var callback = 'displayNarrative';
 			loadAlbum(album,callback);	
 		} else if (window.location.hash == '#photos') {
@@ -225,13 +225,13 @@ $(document).ready(function() {
 	});	
 	$("#menu .commercial.links").click(function () {
 		$('.tinynav').val("#commercial").attr("selected","selected");
-		var album = '2487208';
+		var album = '3881699';
 		var callback = 'displayCommercial';
 		loadAlbum(album,callback);
 	});
 	$("#menu .narrative.links").click(function () {
 		$('.tinynav').val("#narrative").attr("selected","selected");
-		var album = '2487207';
+		var album = '3881698';
 		var callback = 'displayNarrative';
 		loadAlbum(album,callback);	
 	});
@@ -245,11 +245,11 @@ $(document).ready(function() {
 			displayHome();
 			loadAlbum(album,callback);
 		} else if ($(this).val() == '#commercial'){
-			var album = '2487208';
-			var callback = 'displayCommercials';
+			var album = '3881699';
+			var callback = 'displayCommercial';
 			loadAlbum(album,callback);
 		} else if ($(this).val() == '#narrative'){
-			var album = '2487207';
+			var album = '3881698';
 			var callback = 'displayNarrative';
 			loadAlbum(album,callback);
 		} else if ($(this).val() == '#photos'){
