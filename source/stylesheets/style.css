@@ -2,14 +2,14 @@ body, td { font: 14px/1.3 verdana, arial, helvetica, sans-serif; }
 img, object, embed, iframe, video { max-width:100%; height:auto; }
 a { outline: none; text-decoration:none; }
 a:hover, a.selected { text-decoration:underline; }
-a:link, a:visited { color:#ffffff; }
+a:link, a:visited { color:#000000; }
 ul { margin-bottom: 2em; }
 ul li { margin-bottom:.5em; }
 body {
-	font-family: "Courier New", Courier, monospace;
+	font-family: hk_grotesklight, helvetica, monospace;
 	font-size: 10px;
-	color: #ffffff;
-  background-color:#000000;
+	color: #000000;
+  background-color:#ffffff;
 	text-decoration: none;
 }
 	#container {
@@ -18,7 +18,6 @@ body {
 		margin:auto;
 		overflow:hidden;
 	}
-	#header { text-align:center; }
 	#header h1 { text-transform:uppercase; font-size:2em; font-weight:normal; margin:0; }
 	#page { overflow:hidden; }
 	#menu { margin-top:5%; margin-right:5%; }
@@ -37,9 +36,9 @@ body {
 	#footer { text-transform:uppercase; text-align:right; font-size:1em; }
 	#footer p { margin:0; }
 	#home {
-		font-family: "Courier New", Courier, monospace;
+	  font-family: hk_grotesklight, helvetica, monospace;
 		font-size: 16px;
-		color: #ffffff;
+		color: #000000;
 		text-decoration: none;
 	}
 	
