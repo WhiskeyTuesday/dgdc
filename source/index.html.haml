@@ -1,4 +1,5 @@
 #container
+  #header
   #page
     #menu
       %ul
@@ -8,18 +9,20 @@
           %a.commercial.links(href="#commercial")COMMERCIAL
         %li
           %a.narrative.links(href="#narrative")NARRATIVE
+        %li
+          %a(href="http://www.instagram.com/dgdc.ca") Photography
         -#
-          li  
+          %li
             %a(href="#photos" class="photos links")PHOTOS
     #content
       #home
+        #name(style="font-size: 2.5rem;")David Goldberg
+        #title(style="font-size: 2rem;")Director // Cinematographer
+        #contact-info(style="font-size: 1rem;")
+          :markdown
+            778 938 757   
+            [DG@DGDC.CA](mailto:dg@dgdc.ca)
         %a(name="home")
-        %h3 David Goldberg
-        %h3 Director // Cinematographer
-        (P) 778 938 7573
-        %p 
-          (E)
-          %a(href="mailto:dg@dgdc.ca")DG@DGDC.CA
         .embed-container
           %iframe(src="http://player.vimeo.com/video/61879457?title=0&amp;byline=0&amp;portrait=0" frameborder="0") webkitAllowFullScreen mozallowfullscreen allowFullScreen
       #commercial(style="display:none;")
@@ -31,3 +34,4 @@
       #photos(style="display:none;")
         %a(name="photos")
         %h2 Photos
+        #footer
