@@ -1,6 +1,6 @@
 /* Vimeo Album Integration */
 function loadAlbum(album,callback) {
-	var albumURL = 'http://vimeo.com/api/v2/album/' + album + '/videos.json?callback=' + callback;
+	var albumURL = 'https://vimeo.com/api/v2/album/' + album + '/videos.json?callback=' + callback;
 	var js = document.createElement('script');
 	js.setAttribute('type', 'text/javascript');
 	js.setAttribute('src', albumURL);
@@ -26,12 +26,12 @@ function displayAlbum(videos,containerID) {
 		title.innerHTML = videos[i].title;
 
 		var a = document.createElement('a');
-		a.setAttribute('href', 'http://player.vimeo.com/video/'+videos[i].id+'?byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1');
+		a.setAttribute('href', 'https://player.vimeo.com/video/'+videos[i].id+'?byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1');
 		a.setAttribute('class', 'fancybox fancybox.iframe');
 		a.setAttribute('title', videos[i].title);
 		a.appendChild(thumb);
-		a.appendChild(title);		
-		
+		a.appendChild(title);
+
 		/* Deprecated Description Functionality
 		var span = document.createElement('span');
 		span.setAttribute('class', 'description');
@@ -54,7 +54,7 @@ function displayAlbum(videos,containerID) {
 		});
 		$("#"+containerID+" .list").masonry('unbindResize');
 	});*/
-	
+
 	if ($(document).width() > 680) {
 		columns = 3;
 	} else {
@@ -101,7 +101,7 @@ function displayPhotoAlbum(flickrID,containerID) {
 				var id = photo.id;
 				var secret = photo.secret;
 				var title = photo.title;
-				$('#'+containerID+' ul.photolist').append('<li><a class="fancybox fancybox.image" href="http://farm'+farm+'.staticflickr.com/'+server+'/'+id+'_'+secret+'_b.jpg" rel="photos" title="'+title+'"><img src="http://farm'+farm+'.staticflickr.com/'+server+'/'+id+'_'+secret+'_s.jpg" alt=""'+title+'" title=""'+title+'" /></a></li>');	
+				$('#'+containerID+' ul.photolist').append('<li><a class="fancybox fancybox.image" href="http://farm'+farm+'.staticflickr.com/'+server+'/'+id+'_'+secret+'_b.jpg" rel="photos" title="'+title+'"><img src="http://farm'+farm+'.staticflickr.com/'+server+'/'+id+'_'+secret+'_s.jpg" alt=""'+title+'" title=""'+title+'" /></a></li>');
 			}
 			if (photoset.total == 100) {
 				$('#'+containerID+' ul.photolist').append('<li><a href="http://www.flickr.com/photos/69044753@N03" title="David Goldberg Photos"><img src="images/more.jpg" alt="More Photos" title="More Flickr Photos" /></a></li>');
@@ -110,8 +110,7 @@ function displayPhotoAlbum(flickrID,containerID) {
 			$('#'+containerID+' ul.photolist').append('<p class="error">Error Loading Flickr Feed</p>');
 		}
 	});
-	
-	
+
 	/* Deprecated jflickrfeed implementation
 	$('#'+containerID+' ul.photolist').jflickrfeed({
 		limit: 20,
@@ -120,7 +119,7 @@ function displayPhotoAlbum(flickrID,containerID) {
 		},
 		itemTemplate: '<li><a class="fancybox fancybox.image" href="{{image_b}}" rel="photos" title="{{title}}"><img src="{{image_s}}" alt="{{title}}" title="{{title}}" /></a></li>'
 	}, function (data) {
-		$('#'+containerID+' ul.photolist').append('<li><a href="http://www.flickr.com/photos/69044753@N03" title="David Goldberg Photos"><img src="images/more.jpg" alt="More Photos" title="More Flickr Photos" /></a></li>');		
+		$('#'+containerID+' ul.photolist').append('<li><a href="http://www.flickr.com/photos/69044753@N03" title="David Goldberg Photos"><img src="images/more.jpg" alt="More Photos" title="More Flickr Photos" /></a></li>');
 	});
 	*/
 	$("#"+containerID+" .fancybox").attr('rel', containerID).fancybox({fitToView:true,autoResize:true,mouseWheel:true,margin:[20,60,20,60],helpers:{buttons:{},title:{type:'inside'},thumbs:{width:50,height:50}}});
@@ -185,13 +184,13 @@ $(document).ready(function() {
 	if (window.location.hash) {
 		if (window.location.hash == '#home') {
 			$("#menu .links").removeClass("selected");
-			$('.tinynav option').removeAttr("selected");		
+			$('.tinynav option').removeAttr("selected");
 			$("#menu .home.links").addClass("selected");
 			$('.tinynav').val("#home").attr("selected","selected");
 			displayHome();
 		} else if (window.location.hash == '#commercial') {
 			$("#menu .links").removeClass("selected");
-			$('.tinynav option').removeAttr("selected");		
+			$('.tinynav option').removeAttr("selected");
 			$("#menu .commercial.links").addClass("selected");
 			$('.tinynav').val("#commercial").attr("selected","selected");
 			var album = '3881699';
@@ -199,15 +198,15 @@ $(document).ready(function() {
 			loadAlbum(album,callback);
 		} else if (window.location.hash == '#narrative') {
 			$("#menu .links").removeClass("selected");
-			$('.tinynav option').removeAttr("selected");		
+			$('.tinynav option').removeAttr("selected");
 			$("#menu .narrative.links").addClass("selected");
 			$('.tinynav').val("#narrative").attr("selected","selected");
 			var album = '3881698';
 			var callback = 'displayNarrative';
-			loadAlbum(album,callback);	
+			loadAlbum(album,callback);
 		} else if (window.location.hash == '#photos') {
 			$("#menu .links").removeClass("selected");
-			$('.tinynav option').removeAttr("selected");		
+			$('.tinynav option').removeAttr("selected");
 			$("#menu .photos.links").addClass("selected");
 			$('.tinynav').val("#photos").attr("selected","selected");
 			var flickrID = "69044753@N03";
@@ -217,12 +216,12 @@ $(document).ready(function() {
 	$("#menu .links").click(function () {
 		$("#menu .links").removeClass("selected");
 		$(this).addClass("selected");
-		$('.tinynav option').removeAttr("selected");		
+		$('.tinynav option').removeAttr("selected");
 	});
-	$("#menu .home.links").click(function () { 
+	$("#menu .home.links").click(function () {
 		$('.tinynav').val("#home").attr("selected","selected");
 		displayHome();
-	});	
+	});
 	$("#menu .commercial.links").click(function () {
 		$('.tinynav').val("#commercial").attr("selected","selected");
 		var album = '3881699';
@@ -233,7 +232,7 @@ $(document).ready(function() {
 		$('.tinynav').val("#narrative").attr("selected","selected");
 		var album = '3881698';
 		var callback = 'displayNarrative';
-		loadAlbum(album,callback);	
+		loadAlbum(album,callback);
 	});
 	$("#menu .photos.links").click(function () {
 		$('.tinynav').val("#photos").attr("selected","selected");
